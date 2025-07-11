@@ -1,0 +1,619 @@
+/* Non-critical CSS for lazy-loaded content */
+
+/* Section styles */
+.about-section,
+.menu-section {
+    padding: 4rem 0;
+}
+
+.about-section {
+    background-color: white;
+}
+
+.menu-section {
+    background-color: var(--accent);
+}
+
+.contact-section {
+    padding: 4rem 0;
+    background-color: white;
+}
+
+/* Section headers */
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.section-divider {
+    width: 5rem;
+    height: 4px;
+    background-color: var(--secondary);
+    margin: 0 auto 1.5rem;
+}
+
+.section-description {
+    color: #374151;
+    max-width: 32rem;
+    margin: 0 auto;
+}
+
+/* About section */
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .about-content {
+        flex-direction: row;
+    }
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-img {
+    border-radius: 0.75rem;
+    width: 100%;
+    height: 24rem;
+    object-fit: cover;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-subtitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.about-description {
+    color: #374151;
+    margin-bottom: 1.5rem;
+}
+
+.hours-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+}
+
+.hours-table {
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.hours-table td {
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+}
+
+.hours-table tr:nth-child(even) {
+    background-color: #f0fdf4;
+}
+
+.closed {
+    color: #ef4444;
+}
+
+.delivery-info {
+    color: #374151;
+}
+
+.highlight {
+    font-weight: 700;
+}
+
+/* Menu section */
+.menu-category {
+    margin-bottom: 4rem;
+}
+
+.category-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .menu-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.pizzas-grid {
+    gap: 2rem;
+}
+
+.menu-item {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateZ(0);
+    will-change: transform, box-shadow;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.menu-item:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.15);
+}
+
+.menu-item-content {
+    padding: 1.5rem;
+}
+
+.menu-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+}
+
+.menu-item-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1f2937;
+    flex: 1;
+}
+
+.menu-item-price {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-align: right;
+}
+
+.menu-item-description {
+    color: #6b7280;
+    margin-bottom: 1rem;
+}
+
+.specialty-badge {
+    text-align: center;
+}
+
+.specialty-badge span {
+    font-size: 0.75rem;
+    background-color: var(--primary);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+}
+
+/* Pizza card animation */
+.pizza-card {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+.pizza-inner {
+    position: relative;
+    transition: transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+.pizza-card:hover .pizza-inner {
+    transform: rotateY(180deg) scale(1.02);
+}
+
+.pizza-front,
+.pizza-back {
+    backface-visibility: hidden;
+}
+
+.pizza-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary);
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotateY(180deg);
+}
+
+.pizza-back-content {
+    text-align: center;
+    color: white;
+    padding: 1rem;
+}
+
+.pizza-back-content h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.pizza-back-content p {
+    margin-bottom: 1rem;
+}
+
+.pizza-back-price {
+    font-size: 1.875rem;
+    font-weight: 700;
+}
+
+/* Contact section */
+.contact-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+    .contact-content {
+        flex-direction: row;
+    }
+}
+
+.contact-info,
+.contact-map {
+    flex: 1;
+}
+
+.contact-card,
+.order-card {
+    background-color: #f3f4f6;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateZ(0);
+    margin-bottom: 2rem;
+}
+
+.contact-card:hover,
+.order-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.12);
+}
+
+.contact-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+
+.contact-item {
+    margin-bottom: 1.5rem;
+}
+
+.contact-item-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.contact-item-title i {
+    color: var(--primary);
+    margin-right: 0.75rem;
+}
+
+.contact-item-text {
+    color: #374151;
+}
+
+.map-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%;
+    border-radius: 0.75rem;
+}
+
+.map-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 0.75rem;
+}
+
+.order-description {
+    color: #374151;
+    margin-bottom: 1rem;
+}
+
+.order-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--primary);
+    color: white;
+    padding: 3rem 0;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .footer-content {
+        flex-direction: row;
+        gap: 0;
+    }
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+}
+
+.footer-icon {
+    font-size: 2.5rem;
+    margin-right: 0.75rem;
+}
+
+.footer-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+}
+
+.footer-subtitle {
+    color: var(--accent);
+}
+
+.footer-info {
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .footer-info {
+        text-align: right;
+    }
+}
+
+.footer-info p {
+    margin-bottom: 0.5rem;
+}
+
+.footer-copyright {
+    color: var(--accent);
+}
+
+/* Lazy loading styles */
+.lazy {
+    opacity: 0;
+    transition: all 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateY(20px);
+}
+
+.lazy.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Loading placeholder for images */
+.lazy:not(.loaded) {
+    background-color: #f3f4f6;
+    background-image: linear-gradient(45deg, transparent 25%, #e5e7eb 25%, #e5e7eb 50%, transparent 50%, transparent 75%, #e5e7eb 75%);
+    background-size: 20px 20px;
+    animation: loading-shimmer 1s linear infinite;
+}
+
+@keyframes loading-shimmer {
+    0% {
+        background-position: 0 0;
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        background-position: 20px 20px;
+        opacity: 0.6;
+    }
+}
+
+/* iOS-style micro-interactions */
+.btn:active {
+    transform: translateY(-1px) scale(0.98);
+    transition: all 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.menu-item:active {
+    transform: translateY(-2px) scale(0.98);
+    transition: all 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* iOS-style focus states */
+.btn:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+    transform: translateY(-1px) scale(1.02);
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* iOS-style section transitions */
+.about-section,
+.menu-section,
+.contact-section {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: ios-section-enter 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.about-section {
+    animation-delay: 0.1s;
+}
+
+.menu-section {
+    animation-delay: 0.2s;
+}
+
+.contact-section {
+    animation-delay: 0.3s;
+}
+
+@keyframes ios-section-enter {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* iOS-style menu item stagger animation */
+.menu-item {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: ios-item-enter 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.menu-item:nth-child(1) { animation-delay: 0.1s; }
+.menu-item:nth-child(2) { animation-delay: 0.15s; }
+.menu-item:nth-child(3) { animation-delay: 0.2s; }
+.menu-item:nth-child(4) { animation-delay: 0.25s; }
+.menu-item:nth-child(5) { animation-delay: 0.3s; }
+.menu-item:nth-child(6) { animation-delay: 0.35s; }
+
+@keyframes ios-item-enter {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* iOS-style header animation */
+header {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Mobile menu iOS-style slide animation */
+.mobile-menu {
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.mobile-menu:not(.hidden) {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Responsive improvements */
+@media (max-width: 640px) {
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .menu-item-name {
+        font-size: 1.125rem;
+    }
+    
+    .menu-item-price {
+        font-size: 1rem;
+    }
+    
+    .order-buttons {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Performance optimizations */
+.menu-item,
+.contact-card,
+.order-card {
+    contain: layout style paint;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none;
+        animation: none;
+    }
+    
+    .pizza-card:hover .pizza-inner {
+        transform: none;
+    }
+    
+    @keyframes ios-float {
+        0%, 100% { transform: translateY(0px); }
+    }
+    
+    .lazy {
+        opacity: 1;
+        transform: none;
+    }
+    
+    .about-section,
+    .menu-section,
+    .contact-section,
+    .menu-item {
+        opacity: 1;
+        transform: none;
+        animation: none;
+    }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "pizzaria-miragem",
+  "version": "1.0.0",
+  "description": "Pizzaria Miragem - Vila do Conde website",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Static site - no build process needed'",
+    "start": "echo 'Open index.html in your browser'",
+    "dev": "echo 'Open index.html in your browser'"
+  },
+  "keywords": ["pizzaria", "restaurant", "vila-do-conde", "static-website"],
+  "author": "Pizzaria Miragem",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {}
+}
